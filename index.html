@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <link rel="stylesheet" href="./assets/css/main.css" />
+        <title>MyCTF by Lafixier</title>
+    </head>
+    <body>
+        <div id="app">
+            <!-- <div
+                class="cover"
+                v-show="isCoverShown"
+                @click="coverClicked"
+            ></div> -->
+            <header id="header"></header>
+            <main id="main">
+                <section class="category" v-for="category in categories">
+                    <h1 class="category__name">{{ category.name }}</h1>
+                    <div class="problems">
+                        <div
+                            :id="`problem/${problem.name}`"
+                            class="problem"
+                            v-for="problem in category.problems"
+			    onclick="(function(){let val = 'test';alert(val);})();"
+                        >
+                            <div class="problem__header">
+                                <h2 class="problem__header__name">
+                                    {{ problem.name }}
+                                </h2>
+                            </div>
+                            <div class="problem__footer">
+                                <div class="problem__footer__tags">
+                                    <span
+                                        class="problem__footer__tags__tag"
+                                        :class="tag"
+                                        v-for="tag in problem.tags"
+                                    >
+                                        {{ tag }}
+                                    </span>
+                                </div>
+                            </div>
+                            <div
+                                :id="`problem-modal/${problem.name}`"
+                                class="problem__modal"
+                                :class="{passive: activeProblemModalId !== `problem-modal/${problem.name}`}"
+                            >
+                                <div class="problem__modal__header">
+                                    <h2 class="problem__modal__header__name">
+                                        {{ problem.name }}
+                                    </h2>
+                                </div>
+                                <div class="problem__modal__main">
+                                    <div
+                                        class="problem__modal__main__description"
+                                    >
+                                        {{ problem.description }}
+                                    </div>
+                                    <div class="problem__modal__main__link">
+                                        <a
+                                            class="problem__modal__main__link__a"
+                                            :href="problem.link.href"
+                                            >{{ problem.link.name }}</a
+                                        >
+                                    </div>
+                                </div>
+                                <div class="problem__modal__footer">
+                                    <div class="problem__modal__footer__tags">
+                                        <span
+                                            class="problem__modal__footer__tags__tag"
+                                            :class="tag"
+                                            v-for="tag in problem.tags"
+                                        >
+                                            {{ tag }}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer id="footer"></footer>
+        </div>
+    </body>
+    <script src="./assets/js/app.js"></script>
+</html>

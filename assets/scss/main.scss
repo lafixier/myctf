@@ -1,0 +1,29 @@
+body {
+    background-color: #c1d5e0;
+    font-family: "Noto Sans JP", "Helvetica Neue", Arial,
+        "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    margin: 0;
+}
+
+#main {
+    color: white;
+    text-align: center;
+    .category {
+        .category__name {
+        }
+        .problems {
+            .problem {
+                background-color: #4dd0e1;
+                cursor: pointer;
+                display: inline-block;
+                margin: 10px;
+                max-width: 400px;
+                padding: 20px;
+                width: 40%;
+                .passive {
+                    display: none;
+                }
+            }
+        }
+    }
+}
